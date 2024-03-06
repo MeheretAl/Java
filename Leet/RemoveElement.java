@@ -1,10 +1,11 @@
+package Leet;
 public class RemoveElement {
     public static void main(String[] args) {
         int[] check = {0, 1, 2, 2, 3, 0, 4, 2};
         int target = 2;
         removeElement(check, target);
-        for (int i = 0; i < check.length; i++) {
-            System.out.print(check[i] + " ");
+        for (int j : check) {
+            System.out.print(j + " ");
         }
     }
 

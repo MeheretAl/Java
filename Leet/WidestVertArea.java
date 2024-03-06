@@ -1,11 +1,9 @@
 package Leet;
 
-
 import java.util.Arrays;
 
-
 public class WidestVertArea {
-
+    //usage example
     public static void main(String[] args) {
         int[][] check = {{3,1},{9,0},{1,0},{1,4},{5,3},{8,8}};
         int answer = widestVertArea(check);

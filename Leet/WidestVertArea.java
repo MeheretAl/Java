@@ -1,7 +1,8 @@
 package Leet;
 
-import java.util.ArrayList;
-import java.util.Collections;
+
+import java.util.Arrays;
+
 
 public class WidestVertArea {
 
@@ -13,17 +14,17 @@ public class WidestVertArea {
 
     }
     public static int widestVertArea(int[][] nums) {
-        ArrayList<Integer> Points = new ArrayList<>();
-        for (int[] num : nums) {
-            Points.add(num[0]);
+        int length = nums.length;
+        int[] xpoints = new int[length];
+        for (int i = 0; i < length; i++) {
+            xpoints[i] = nums[i][0];
         }
 
-        Collections.sort(Points);
-        int maxlength = -63324;
-        int length = Points.size();
+        Arrays.sort(xpoints);
+        int maxlength = Integer.MIN_VALUE; // minimum value possible for int data type
         for (int i = 0; i < length-1; i++) {
-            int diff = Points.get(i + 1) - Points.get(i);
-            maxlength = Math.max(diff,maxlength);
+            int diff = xpoints[i+1] - xpoints[i];
+            maxlength = Math.max(diff,maxlength); // find maximum value between two numbers
         }
         return maxlength;
 

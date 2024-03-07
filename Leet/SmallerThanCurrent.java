@@ -4,31 +4,33 @@ public class SmallerThanCurrent {
 
     //sample example
     public static void main(String[] args) {
-        int[] check = {8,1,2,2,3};
+        int[] check = {6,5,4,8};
         int[] answer = smallerThanCurrent(check);
         for(int num: answer) {
             System.out.println(num);
         }
     }
     public static int[] smallerThanCurrent(int[] nums){
-        // {8,1,2,2,3}
-        // {4,0,1,1,2}
-
-        int length = nums.length;
-        int[] answer = new int[length];
-        for (int j = 0; j < length; j++){
-            int counter = 0;
-            int i = 0;
-            while (i < length) {
-                if (nums[j] > nums[i]){
-                    counter+=1;
-                }
-                i++;
-                answer[j] = counter;
-            }
+        int maxValue = Integer.MIN_VALUE;
+        for( int num: nums){
+            maxValue = Math.max(maxValue,num);
+        }
+        int[] counts = new int[maxValue+1];
+        for(int num:nums){
+            counts[num]++;
+        }
+        int[] cumulativeCounts = new int[maxValue+1];
+        int previousSum = 0;
+        for (int i = 0 ; i<maxValue; i++){
+            previousSum += counts[i];
+            cumulativeCounts[i+1] = previousSum;
         }
 
+        int[] answerArray = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            answerArray[i] = cumulativeCounts[nums[i]];
+        }
 
-    return answer;
+        return answerArray;
     }
  }

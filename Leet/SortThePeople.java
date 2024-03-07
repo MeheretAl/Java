@@ -1,14 +1,11 @@
 package Leet;
 
-import java.util.Arrays;
-import java.util.Comparator;
 
 public class SortThePeople {
     public static void main(String[] args) {
         String[] names = {"Mary","John","Emma"};
         int[] heights = {180,165,170};
         String[] sorted = sortThePeople(names,heights);
-
 
     }
 

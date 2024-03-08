@@ -9,7 +9,7 @@ public class RandomNum {
         int randomNum = random.nextInt(101);
         int tries = 10;
         while (tries > -1) {
-
+            
             System.out.print("Input your guess: ");
             int guess = input.nextInt();
             if (guess == randomNum && tries != 0) {
